@@ -1,0 +1,31 @@
+name: Model Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run data processing
+        run: python src/data_processing.py
+
+      - name: Run model training
+        run: python src/model_training.py
+
+      - name: Run model evaluation
+        run: python src/model_evaluation.py

@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestRegressor
 import joblib
 
 # Wczytanie przetworzonych danych
-df = pd.read_csv(r'C:\Users\wikto\PycharmProjects\Lab3\data\processed_data_with_dummies.csv')
+df = pd.read_csv('processed_data_with_dummies.csv')
 
 X = df.drop('score', axis=1)
 y = df['score']
@@ -19,6 +19,9 @@ model = RandomForestRegressor(random_state=42)
 model.fit(X_train, y_train)
 
 # Zapis modelu
-joblib.dump(model, r'C:\Users\wikto\PycharmProjects\Lab3\data\trained_model.joblib')
+joblib.dump(model, 'trained_model.joblib')
+# Zapisanie kolumn użytych do treningu jako `model_columns.joblib`
+model_columns = X_train.columns.tolist()
+joblib.dump(model_columns, 'model_columns.joblib')
 
-print("Model training completed and saved to 'data/trained_model.joblib'")
+print("Model training completed and saved to 'trained_model.joblib'")

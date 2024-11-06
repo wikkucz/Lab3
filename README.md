@@ -102,3 +102,4 @@ Aplikacja będzie dostępna pod adresem `http://localhost:8000`.
     ```
 
 Aplikacja będzie dostępna pod adresem `http://localhost:8000`.
+Wejdź do interaktywnej dokumentacji API pod adresem: http://127.0.0.1:8000/docs
